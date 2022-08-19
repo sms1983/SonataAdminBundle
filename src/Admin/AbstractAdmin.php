@@ -807,7 +807,7 @@ abstract class AbstractAdmin extends AbstractTaggedAdmin implements AdminInterfa
      * This method is being called by the main admin class and the child class,
      * the getFormBuilder is only call by the main admin class.
      */
-    final public function defineFormBuilder(FormBuilderInterface $formBuilder): void
+    public function defineFormBuilder(FormBuilderInterface $formBuilder): void
     {
         if (!$this->hasSubject()) {
             throw new \LogicException(sprintf(
@@ -1483,7 +1483,7 @@ abstract class AbstractAdmin extends AbstractTaggedAdmin implements AdminInterfa
         return null !== $this->request;
     }
 
-    final public function getBaseCodeRoute(): string
+    public function getBaseCodeRoute(): string
     {
         if ($this->isChild()) {
             return $this->getParent()->getBaseCodeRoute().'|'.$this->getCode();
