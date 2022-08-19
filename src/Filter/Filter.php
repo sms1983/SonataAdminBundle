@@ -187,7 +187,7 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return $this->options;
     }
 
-    final public function isActive(): bool
+    public function isActive(): bool
     {
         return $this->active;
     }
