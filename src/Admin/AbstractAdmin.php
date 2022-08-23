@@ -888,7 +888,7 @@ abstract class AbstractAdmin extends AbstractTaggedAdmin implements AdminInterfa
         return $list;
     }
 
-    final public function createQuery(): ProxyQueryInterface
+    public function createQuery(): ProxyQueryInterface
     {
         $query = $this->getModelManager()->createQuery($this->getClass());
 
