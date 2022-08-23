@@ -791,7 +791,7 @@ abstract class AbstractAdmin extends AbstractTaggedAdmin implements AdminInterfa
         return $object;
     }
 
-    final public function getFormBuilder(): FormBuilderInterface
+    public function getFormBuilder(): FormBuilderInterface
     {
         $formBuilder = $this->getFormContractor()->getFormBuilder(
             $this->getUniqId(),
