@@ -778,7 +778,7 @@ abstract class AbstractAdmin extends AbstractTaggedAdmin implements AdminInterfa
         return $this->getRouteGenerator()->generateMenuUrl($this, $name, $parameters, $referenceType);
     }
 
-    final public function getNewInstance(): object
+    public function getNewInstance(): object
     {
         $object = $this->createNewInstance();
 
