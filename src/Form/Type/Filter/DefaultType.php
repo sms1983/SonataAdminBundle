@@ -25,7 +25,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @deprecated since sonata-project/admin-bundle version 4.14 use the FilterDataType instead
  */
-final class DefaultType extends AbstractType
+class DefaultType extends AbstractType
 {
     public function getBlockPrefix(): string
     {
