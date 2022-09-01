@@ -38,7 +38,7 @@ final class AdminPreviewBlockService extends AbstractBlockService
         $this->pool = $pool;
     }
 
-    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response
+    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response: Response
     {
         $template = $blockContext->getTemplate();
         \assert(\is_string($template));

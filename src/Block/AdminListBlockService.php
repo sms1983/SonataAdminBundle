@@ -41,7 +41,7 @@ final class AdminListBlockService extends AbstractBlockService
         $this->templateRegistry = $templateRegistry;
     }
 
-    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response
+    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response: Response
     {
         $dashboardGroups = $this->pool->getDashboardGroups();
 

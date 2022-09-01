@@ -35,7 +35,7 @@ final class AdminStatsBlockService extends AbstractBlockService
         $this->pool = $pool;
     }
 
-    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response
+    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response: Response
     {
         $template = $blockContext->getTemplate();
         \assert(null !== $template);

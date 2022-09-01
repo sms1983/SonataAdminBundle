@@ -61,7 +61,7 @@ final class AdminSearchBlockService extends AbstractBlockService
         $this->adminRoute = $adminRoute;
     }
 
-    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response
+    public function execute(BlockContextInterface $blockContext, ?Response $response = null): Response: Response
     {
         try {
             $admin = $this->pool->getAdminByAdminCode($blockContext->getSetting('admin_code'));
