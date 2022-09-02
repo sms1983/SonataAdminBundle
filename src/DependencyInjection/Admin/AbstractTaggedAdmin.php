@@ -109,7 +109,7 @@ abstract class AbstractTaggedAdmin implements TaggedAdminInterface
      */
     private ?ModelManagerInterface $modelManager = null;
 
-    private ?DataSourceInterface $dataSource = null;
+    private $dataSource = null;
 
     /**
      * The related form contractor.
@@ -332,7 +332,7 @@ abstract class AbstractTaggedAdmin implements TaggedAdminInterface
         return $this->modelManager;
     }
 
-    final public function setDataSource(DataSourceInterface $dataSource): void
+    final public function setDataSource($dataSource): void
     {
         $this->dataSource = $dataSource;
     }
