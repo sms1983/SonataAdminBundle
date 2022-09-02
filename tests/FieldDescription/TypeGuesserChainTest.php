@@ -33,6 +33,11 @@ final class TypeGuesserChainTest extends TestCase
         new TypeGuesserChain([new \stdClass()]);
     }
 
+    public function guess(FieldDescriptionInterface $fieldDescription): ?TypeGuess
+    {
+        //
+    }
+
     public function testGuess(): void
     {
         $typeGuess1 = new TypeGuess('foo1', [], Guess::MEDIUM_CONFIDENCE);
