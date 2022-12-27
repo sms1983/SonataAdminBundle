@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sonata\AdminBundle\Builder;
 
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\FieldDescription\FieldDescriptionInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -26,7 +27,7 @@ interface FormContractorInterface extends BuilderInterface
     /**
      * Adds missing information to the given field description and the given admin.
      */
-    public function fixFieldDescription(FieldDescriptionInterface $fieldDescription): void;
+    public function fixFieldDescription(AdminInterface $admin = null, FieldDescriptionInterface $fieldDescription): void;
 
     /**
      * @param array<string, mixed> $formOptions

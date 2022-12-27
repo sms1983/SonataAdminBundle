@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sonata\AdminBundle\Builder;
 
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\FieldDescription\FieldDescriptionInterface;
 
 /**
@@ -29,5 +30,5 @@ interface BuilderInterface
      *
      * @param FieldDescriptionInterface $fieldDescription will be modified
      */
-    public function fixFieldDescription(FieldDescriptionInterface $fieldDescription): void;
+    public function fixFieldDescription(AdminInterface $admin = null, FieldDescriptionInterface $fieldDescription): void;
 }
