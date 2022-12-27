@@ -41,13 +41,13 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
 
     private ?FilterInterface $previousFilter = null;
 
-    final public function initialize(string $name, array $options = []): void
+    public function initialize(string $name, array $options = []): void
     {
         $this->name = $name;
         $this->setOptions($options);
     }
 
-    final public function getName(): string
+    public function getName(): string
     {
         if (null === $this->name) {
             throw new \LogicException(sprintf(
@@ -60,7 +60,7 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return $this->name;
     }
 
-    final public function getFormName(): string
+    public function getFormName(): string
     {
         /*
            Symfony default form class sadly can't handle
@@ -72,7 +72,7 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return str_replace('.', '__', $this->getName());
     }
 
-    final public function getOption(string $name, $default = null)
+    public function getOption(string $name, $default = null)
     {
         if (\array_key_exists($name, $this->options)) {
             return $this->options[$name];
@@ -81,22 +81,22 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return $default;
     }
 
-    final public function setOption(string $name, $value): void
+    public function setOption(string $name, $value): void
     {
         $this->options[$name] = $value;
     }
 
-    final public function getFieldType(): string
+    public function getFieldType(): string
     {
         return $this->getOption('field_type', TextType::class);
     }
 
-    final public function getFieldOptions(): array
+    public function getFieldOptions(): array
     {
         return $this->getOption('field_options', []);
     }
 
-    final public function getFieldOption(string $name, $default = null)
+    public function getFieldOption(string $name, $default = null)
     {
         if (isset($this->options['field_options'][$name]) && \is_array($this->options['field_options'])) {
             return $this->options['field_options'][$name];
@@ -105,22 +105,22 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return $default;
     }
 
-    final public function setFieldOption(string $name, $value): void
+    public function setFieldOption(string $name, $value): void
     {
         $this->options['field_options'][$name] = $value;
     }
 
-    final public function getLabel()
+    public function getLabel()
     {
         return $this->getOption('label');
     }
 
-    final public function setLabel($label): void
+    public function setLabel($label): void
     {
         $this->setOption('label', $label);
     }
 
-    final public function getFieldName(): string
+    public function getFieldName(): string
     {
         $fieldName = $this->getOption('field_name');
 
@@ -134,12 +134,12 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return $fieldName;
     }
 
-    final public function getParentAssociationMappings(): array
+    public function getParentAssociationMappings(): array
     {
         return $this->getOption('parent_association_mappings', []);
     }
 
-    final public function getFieldMapping(): array
+    public function getFieldMapping(): array
     {
         $fieldMapping = $this->getOption('field_mapping');
 
@@ -153,7 +153,7 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return $fieldMapping;
     }
 
-    final public function getAssociationMapping(): array
+    public function getAssociationMapping(): array
     {
         $associationMapping = $this->getOption('association_mapping');
 
@@ -170,7 +170,7 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
     /**
      * @param array<string, mixed> $options
      */
-    final public function setOptions(array $options): void
+    public function setOptions(array $options): void
     {
         $this->options = array_merge(
             ['show_filter' => null, 'advanced_filter' => true],
@@ -182,37 +182,37 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
     /**
      * @return array<string, mixed>
      */
-    final public function getOptions(): array
+    public function getOptions(): array
     {
         return $this->options;
     }
 
-    final public function isActive(): bool
+    public function isActive(): bool
     {
         return $this->active;
     }
 
-    final public function setCondition(string $condition): void
+    public function setCondition(string $condition): void
     {
         $this->condition = $condition;
     }
 
-    final public function getCondition(): ?string
+    public function getCondition(): ?string
     {
         return $this->condition;
     }
 
-    final public function getTranslationDomain(): ?string
+    public function getTranslationDomain(): ?string
     {
         return $this->getOption('translation_domain');
     }
 
-    final public function setPreviousFilter(FilterInterface $filter): void
+    public function setPreviousFilter(FilterInterface $filter): void
     {
         $this->previousFilter = $filter;
     }
 
-    final public function getPreviousFilter(): FilterInterface
+    public function getPreviousFilter(): FilterInterface
     {
         if (!$this->hasPreviousFilter()) {
             throw new \LogicException(sprintf('Filter "%s" has no previous filter.', $this->getName()));
@@ -222,7 +222,7 @@ abstract class Filter implements FilterInterface, ChainableFilterInterface
         return $this->previousFilter;
     }
 
-    final public function hasPreviousFilter(): bool
+    public function hasPreviousFilter(): bool
     {
         return null !== $this->previousFilter;
     }
