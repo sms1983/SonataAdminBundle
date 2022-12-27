@@ -20,7 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class FilterDataType extends AbstractType
+class FilterDataType extends AbstractType
 {
     /**
      * @param array<string, mixed> $options
