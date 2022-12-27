@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sonata\AdminBundle\Builder;
 
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\FieldDescription\FieldDescriptionInterface;
 use Sonata\AdminBundle\Form\Type\AdminType;
 use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
@@ -44,7 +45,7 @@ abstract class AbstractFormContractor implements FormContractorInterface
         $this->formRegistry = $formRegistry;
     }
 
-    final public function fixFieldDescription(FieldDescriptionInterface $fieldDescription): void
+    final public function fixFieldDescription(AdminInterface $admin = null, FieldDescriptionInterface $fieldDescription): void
     {
         $fieldDescription->setOption('edit', $fieldDescription->getOption('edit', 'standard'));
 
