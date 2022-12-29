@@ -118,7 +118,7 @@ final class FormMapper extends BaseGroupedMapper implements BlockFormMapper
         );
 
         // Note that the builder var is actually the formContractor:
-        $this->builder->fixFieldDescription($fieldDescription);
+        $this->builder->fixFieldDescription(null, $fieldDescription);
 
         // Note that the builder var is actually the formContractor:
         $options = array_replace_recursive(
