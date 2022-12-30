@@ -32,13 +32,13 @@ final class ModelToIdTransformer implements DataTransformerInterface
     /**
      * @phpstan-var class-string<T>
      */
-    private string $className;
+    private ?string $className;
 
     /**
      * @phpstan-param ModelManagerInterface<T> $modelManager
      * @phpstan-param class-string<T>          $className
      */
-    public function __construct(ModelManagerInterface $modelManager, string $className)
+    public function __construct(ModelManagerInterface $modelManager, ?string $className)
     {
         $this->modelManager = $modelManager;
         $this->className = $className;
