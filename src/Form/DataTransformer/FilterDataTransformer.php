@@ -45,7 +45,7 @@ final class FilterDataTransformer implements DataTransformerInterface
      */
     public function transform($value): ?array
     {
-        if (null === $value) {
+        if (null === $value || gettype($value) !== 'FilterData') {
             return null;
         }
 
